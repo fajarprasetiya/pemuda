@@ -136,7 +136,7 @@ battery: "" || "Tidak Terdeteksi",
 isCharge: "" || false
 }
 offline = false
-publik = true
+publik = false
 waktuafk = 'Nothing'
 alasanafk = 'Nothing'
 blocked = []
@@ -145,9 +145,9 @@ NamaOwner = settings.NamaOwner
 NamaBot = settings.NamaBot
 multi = true
 nopref = false
-Nogpy = 082252509320 
-Noovo = 082252509320 
-Nodana = 082252509320
+Nogpy = 081319182408 
+Noovo = 081319182408 
+Nodana = 081319182408
 /////Switch \\\\\
 let bugc = true
 
