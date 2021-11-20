@@ -136,7 +136,7 @@ battery: "" || "Tidak Terdeteksi",
 isCharge: "" || false
 }
 offline = false
-publik = false
+publik = true
 waktuafk = 'Nothing'
 alasanafk = 'Nothing'
 blocked = []
@@ -145,9 +145,9 @@ NamaOwner = settings.NamaOwner
 NamaBot = settings.NamaBot
 multi = true
 nopref = false
-Nogpy = 081319182408 
-Noovo = 081319182408 
-Nodana = 081319182408
+Nogpy = 082252509320 
+Noovo = 082252509320 
+Nodana = 082252509320
 /////Switch \\\\\
 let bugc = true
 
@@ -269,22 +269,22 @@ client.on('group-participants-update', async (anu) => {
 	if (anu.action == 'add') {
 	num = anu.participants[0]
 	try {
-	ppimg = await client.getProfilePicture(`${anu.participants[0].split('@')[0]}@c.us`)
+	ppimg = fs.readFileSync(`./ppimg.jpg`)
 	} catch {
-	ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+	ppimg = fs.readFileSync(`./ppimg.jpg`)
 	}
 	teks = `Hello @${num.split('@')[0]}! Selamat datang\ndiGrup *${mdata.subject}` // [ √ ] Welcome Text
-	let buff = await getBuffer(ppimg)
+	let buff = ppimg
 	client.sendMessage(mdata.id, buff, MessageType.image, {caption: teks, contextInfo: {"mentionedJid": [num]}})
 	} else if (anu.action == 'remove') {
 	num = anu.participants[0]
 	try {
-	ppimg = await client.getProfilePicture(`${num.split('@')[0]}@c.us`)
+	ppimg = fs.readFileSync(`./ppimg.jpg`)
 	} catch {
-	ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+	ppimg = fs.readFileSync(`./ppimg.jpg`)
 	}
 	teks = `Goodbye @${num.split('@')[0]}!` // [ √ ] Leave Text
-	let buff = await getBuffer(ppimg)
+	let buff = ppimg
 	client.sendMessage(mdata.id, buff, MessageType.image, {caption: teks, contextInfo: {"mentionedJid": [num]}})
 	}
 	} catch (e) {
@@ -346,11 +346,10 @@ try {
         const isStcQ = isStc !== "" && content.includes("extendedTextMessage") ||
         isStc !== "" && content.includes("conversation")
         const body = (type === 'listResponseMessage' && mek.message.listResponseMessage.title) ? mek.message.listResponseMessage.title : (type === 'buttonsResponseMessage' && mek.message.buttonsResponseMessage.selectedButtonId) ? mek.message.buttonsResponseMessage.selectedButtonId : (type === 'conversation' && mek.message.conversation.startsWith(prefix)) ? mek.message.conversation : (type == 'imageMessage') && mek.message.imageMessage.caption.startsWith(prefix) ? mek.message.imageMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption.startsWith(prefix) ? mek.message.videoMessage.caption : (type == 'extendedTextMessage') && mek.message.extendedTextMessage.text.startsWith(prefix) ? mek.message.extendedTextMessage.text : (type == 'stickerMessage') && (getCmd(mek.message.stickerMessage.fileSha256.toString('base64')) !== null && getCmd(mek.message.stickerMessage.fileSha256.toString('base64')) !== undefined) ? getCmd(mek.message.stickerMessage.fileSha256.toString('base64')) : ""
-
 		const budo = (typei === 'conversation') ? mek.message.conversation : (typei === 'extendedTextMessage') ? mek.message.extendedTextMessage.text : ''
-
 		const budy = (type === 'conversation') ? mek.message.conversation : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text : ''
 		const command = body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase()
+		const commandd = budy.slice(0).trim().split(/ +/).shift().toLowerCase()
 		const args = body.trim().split(/ +/).slice(1)
 		const isCmd = body.startsWith(prefix)
 		const arg = budy.slice(command.length + 2, budy.length)
@@ -426,11 +425,11 @@ const isAntiVO = isGroup ? antiviewonce.includes(from) : false
 	    iser1 = isGroup ? ers1.includes(sender) : false
         iser2 = isGroup ? ers2.includes(sender) : false
 		try {
-		pporang = await pemuda.getProfilePicture(`${sender.split('@')[0]}@s.whatsapp.net`)
+		pporang = fs.readFileSync(`./ppimg.jpg`)
 		      } catch {
-		pporang = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+		pporang = fs.readFileSync(`./ppimg.jpg`)
 		      }
-		const ofrply = await getBuffer(pporang)
+		const ofrply = pporang
 		const thubb = fs.readFileSync('./media/image/thub_1.jpg')
 		const sekarang = new Date().getTime();
 			//-
@@ -950,24 +949,24 @@ reply(String(e))
 }
 }
 			// AUTO
-			for (let anji of setik){
+			/*for (let anji of setik){
 				if (budy === anji){
 					result = fs.readFileSync(`./media/sticker/${anji}.webp`)
 					pemuda.sendMessage(from, result, sticker, { quoted: fvid, contextInfo: { forwardingScore: 508, isForwarded: true }})
 					}
-			}
-			for (let anju of vien){
+			}*/
+			/*for (let anju of vien){
 				if (budy === anju){
 					result = fs.readFileSync(`./media/vn/${anju}.mp3`)
 					pemuda.sendMessage(from, result, audio, { mimetype: 'audio/mp4', duration: 253, ptt: true, quoted: mek, contextInfo: { forwardingScore: 508, isForwarded: true}})
 					}
-			}
-			for (let anjh of imagi){
+			}*/
+			/*for (let anjh of imagi){
 				if (budy === anjh){
 					result = fs.readFileSync(`./media/image/${anjh}.jpg`)
 					pemuda.sendMessage(from, result, image, { quoted: mek, contextInfo: { forwardingScore: 508, isForwarded: true}})
 					}
-			}
+			}*/
 			    //AUTO RESPON
       stod = `${sender}`
       for (let i = 0; i < commandsDB.length ; i++) {
@@ -1015,13 +1014,13 @@ await pemuda.modifyChat(m.chat, 'delete', {
  includeStarred: false
 })
 }
-if (!isGroup && !isCmd && !command && !mek.key.fromMe && !autorespon) {
+/*if (!isGroup && !isCmd && !command && !mek.key.fromMe && !autorespon) {
 numd = await fetchJson(`https://api.telnyx.com/anonymous/v2/number_lookup/${senderNumber}`, {method: 'get'})
 	simi = await fetchJson(`https://api.simsimi.net/v2/?text=${cmd}&lc=id`)
                      sami = simi.success
                         pemuda.sendMessage(from, `_${sami}_`, text, {thumbnail: ofrply, sendEphemeral: true, quoted:mek, contextInfo : {forwardingScore: 508, isForwarded: true}})
-                      }
-if (!settings.autoread) {
+                      }*/
+/*if (!settings.autoread) {
 pemuda.chatRead(from)
 }
 if (!settings.autocomposing) {
@@ -1029,7 +1028,7 @@ pemuda.updatePresence(from, Presence.composing)
 }
 if (!settings.autorecording) {
 pemuda.updatePresence(from, Presence.recording)
-}
+}*/
    const sotoy = [
         '🍊 : 🍒 : 🍐',
         '🍒 : 🔔 : 🍊',
@@ -1073,9 +1072,27 @@ pemuda.updatePresence(from, Presence.recording)
 		if (!publik) {
 		if (!isOwner && !mek.key.fromMe) return
 		}
-	    if (isCmd && !isGroup) {console.log(color('|CMD|', 'greenyellow'), color(moment(mek.messageTimestamp * 1000).format('DD/MM/YY HH:mm:ss'), 'blue'), color(`${command} [${args.length}]`, 'cyan'), color(`${pushname}`, 'orange'), color(`${sender}`, 'deeppink'))}
-	    if (!command) {console.log(color('|MSG|', 'greenyellow'), color(moment(mek.messageTimestamp * 1000).format('DD/MM/YY HH:mm:ss'), 'blue'), color(cmd, 'cyan'), color(`${pushname}`, 'orange'), color(`${sender}`, 'deeppink'))}
 		
+	    if(isCmd && !isGroup) console.log(bgcolor(`\x1b[1;37m[CMD]`, 'blue'),bgcolor(`\x1b[1;33m[${time}]`, 'red'), bgcolor(`\x1b[1;31m${sender}`, 'yellow'), '\x1b[1;37mroom', bgcolor(`\x1b[1;33m${from}`, 'red'), `\x1b[0m`)
+        if(isCmd && !isGroup) console.log(bgcolor(`\x1b[1;37m[CMD]`, 'blue'),(`\x1b[1;37mPesan : \x1b[1;32m${command}`))
+        if(isCmd && !isGroup) console.log(bgcolor(`\x1b[1;37m[CMD]`, 'blue'), (`\x1b[1;37mFrom  : `),color(`[ ${pushname} ]`, 'cyan'))
+        if(isCmd && !isGroup) console.log(' ')
+        
+        if(isCmd && isGroup) console.log(bgcolor(`\x1b[1;37m[CMD]`, 'blue'),bgcolor(`\x1b[1;33m[${time}]`, 'red'), bgcolor(`\x1b[1;31m${sender}`, 'yellow'), '\x1b[1;37mroom', bgcolor(`\x1b[1;33m${from}`, 'red'), `\x1b[0m`)
+        if(isCmd && isGroup) console.log(bgcolor(`\x1b[1;37m[CMD]`, 'blue'),(`\x1b[1;37mPesan : \x1b[1;32m${command}`))
+        if(isCmd && isGroup) console.log(bgcolor(`\x1b[1;37m[CMD]`, 'blue'), (`\x1b[1;37mFrom  : `),color(`[ ${pushname} - ${groupName} ]`, 'cyan'))
+        if(isCmd && isGroup) console.log(' ')
+        
+        if(!isCmd && !isGroup) console.log(bgcolor(`\x1b[1;31m[MSG]`, 'yellow'),bgcolor(`\x1b[1;33m[${time}]`, 'red'), bgcolor(`\x1b[1;31m${sender}`, 'yellow'), '\x1b[1;37mroom', bgcolor(`\x1b[1;33m${from}`, 'red'), `\x1b[0m`)
+        if(!isCmd && !isGroup) console.log(bgcolor(`\x1b[1;31m[MSG]`, 'yellow'),(`\x1b[1;37mPesan : \x1b[1;32m${commandd}`))
+        if(!isCmd && !isGroup) console.log(bgcolor(`\x1b[1;31m[MSG]`, 'yellow'), (`\x1b[1;37mFrom  : `),color(`[ ${pushname} ]`, 'cyan'))
+        if(!isCmd && !isGroup) console.log(' ')
+        
+        if(!isCmd && isGroup) console.log(bgcolor(`\x1b[1;31m[MSG]`, 'yellow'),bgcolor(`\x1b[1;33m[${time}]`, 'red'), bgcolor(`\x1b[1;31m${sender}`, 'yellow'), '\x1b[1;37mroom', bgcolor(`\x1b[1;33m${from}`, 'red'), `\x1b[0m`)
+        if(!isCmd && isGroup) console.log(bgcolor(`\x1b[1;31m[MSG]`, 'yellow'),(`\x1b[1;37mPesan : \x1b[1;32m${commandd}`))
+        if(!isCmd && isGroup) console.log(bgcolor(`\x1b[1;31m[MSG]`, 'yellow'), (`\x1b[1;37mFrom  : `),color(`[ ${pushname} - ${groupName} ]`, 'cyan'))
+        if(!isCmd && isGroup) console.log(' ')
+        
         switch (isStc) {
      case "5b017c6ac1fb953c7bd21034d2fca5fad75ef2da4c3b2c2877ef49fa544e74bf":
         if (!isStcSticker) return reply('Reply stickernya bgsd!')
@@ -1083,17 +1100,16 @@ pemuda.updatePresence(from, Presence.recording)
         reply(su)
 				}
         switch (command) {
-        
+  case 'menu':
   case 'allmenu':
         ptod = "6281337541779@s.whatsapp.net"
         stod = `${sender}`
         uwu = '```'
-       stst = await pemuda.getStatus(`${sender.split('@')[0]}@c.us`)
-				stst = stst.status == 401 ? '' : stst.status
+       /*stst = await pemuda.getStatus(`${sender.split('@')[0]}@c.us`)*/
+				/*stst = stst.status == 401 ? '' : stst.status*/
 tescok = `${menunya(prefix)}`
 Sendbutdocument(from, tescok, "© Project Pemuda*", fs.readFileSync('./media/Project Pemuda.pdf'), {mimetype:Mimetype.pdf, thumbnail:fs.readFileSync('./media/image/thumbnaildokumen.jpg'), filename:`Project Pemuda.pdf`, pageCount: 9999999 }, [{buttonId:`!000`,buttonText:{displayText:'Hai‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎\n\nSemuanya aku mau Jujur Kalau aku itu Gay dan Lagi Pengen Sama Cowok berotot untuk jadi Pacarku, yang Berminat Bisa Chat aku yahh 😋'},type:1}], {quoted:fvid, contextInfo: { mentionedJid: [dtod,otod,stod], forwardingScore: 508, isForwarded: true, externalAdReply:{title:`${tampilUcapan} - ${pushname}\nDownload Script`,mediaType:"2",thumbnail:ofrply,mediaUrl:`https://youtu.be/x-O0WHkv3uc`}}})
 break
-case 'menu':
 case 'help':
 stod = `${sender}`
 stst = await pemuda.getStatus(`${sender.split('@')[0]}@c.us`)
@@ -7326,7 +7342,7 @@ break
 
 //// PEMBATAS MENU JUALAN \\\
 default:
- 	if (isCmd) {
+ 	/*if (isCmd) {
 				tidakada = `[ ! ] Hai *${pushname}* \nCommand *!${command}* tidak tersedia, Silahkan cek fitur  di Menu`
 
 tidakk = [{buttonId: `.menu`, buttonText: {displayText: 'MENU BOT'}, type: 1}]
@@ -7338,7 +7354,7 @@ const tidakbutton = {
 }
 pemuda.sendMessage(from, tidakbutton, MessageType.buttonsMessage, {quoted: mek, contextInfo: {"mentionedJid": [sender]}})
 }
-break
+break*/
 		}
 		if (isTTT && iser2){
 if (budy.startsWith('Y')){
@@ -7517,7 +7533,6 @@ Giliran = @${tty.er1.split('@')[0]}`
             if (!e.includes("Cannot set property 'mtype' of undefined")) {
             if (!e.includes("jid is not defined")) {
      console.log(color('|ERR|', 'red'), color(e, 'cyan'))
-     pemuda.sendMessage(`${settings.NomorOwner}@s.whatsapp.net`, `─────「 *ALERT-ERROR* 」─────\n\n\`\`\`${e}\`\`\`\n\n────────────────────`, MessageType.text, {contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: "Developer Pemuda Bot",body:"",previewType:"PHOTO",thumbnail:fs.readFileSync('./media/image/pemuda.jpg'),sourceUrl:"https://youtu.be/x-O0WHkv3uc"}}})
 	}
     }
     }
