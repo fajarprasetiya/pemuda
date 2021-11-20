@@ -1,10 +1,10 @@
 {
 "autoread": false,
-"autoplaymusic": true,
+"autoplaymusic": false,
 "autocomposing": false,
 "autorecording": false,
 "gamewaktu": 60,
-"NamaBot":"Project Pemuda",
+"NamaBot":"The Litle Botz",
 "NomorOwner":"6281319182408",
 "NamaOwner":"Prast17",
 "ZeksApi":"twBHoFu3AnqfE6f2rwAuirfTVgh",
